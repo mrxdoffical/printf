@@ -1,5 +1,9 @@
 #include"main.h"
-
+/**
+ * c_handler - prints char
+ * @str: string
+ * Return: intger
+*/
 int c_handler(va_list list)
 {
 	char str;
