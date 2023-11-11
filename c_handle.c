@@ -1,15 +1,15 @@
 #include"main.h"
 /**
  * c_handler - prints char
- * @str: string
+ * @list: argument
  * Return: intger
 */
 int c_handler(va_list list)
 {
 	char str;
 
-	str = va_arg(list,int);
+	str = va_arg(list, int);
 	_putchar(str);
-	return(1);
+	return (1);
 
 }
