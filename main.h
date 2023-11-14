@@ -14,4 +14,11 @@ int s_handler(va_list val);
 int _strlen(char *s);
 int _strlenc(const char *s);
 int handler_37(void);
+int i_handler(va_list args);
+int d_handler(va_list lists);
+int bin_handler(va_list lists);
+int u_handler(va_list lists);
+int octal_handler(va_list lists);
+int hex_handler(va_list lists);
+int cap_hex_handler(va_list lists)
 #endif
