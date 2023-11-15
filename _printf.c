@@ -15,31 +15,30 @@ int _printf(const char *format, ...)
 		, {"%S", string_handler}, {"%p", pointer_handler}
 	};
 	va_list lists;
-	int i = 0, len = 0;
-	int holder;
+	int i = 0, j, cout = 0;
 
 	va_start(lists, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-	return (-1);
+		return (-1);
 
-here:
-	while (format[1] == '\0')
+Here:
+	while (format[i] != '\0')
 	{
-		holder = 13;
-		while (holder >= 0)
+		j = 13;
+		while (j >= 0)
 		{
-			if (c[holder].id[0] == format[holder] && c[holder].id[1] == format[i + 1])
+			if (p[j].pin[0] == format[i] && p[j].pin[1] == format[i + 1])
 			{
-				len = len + c[holder].fun(lists);
-				i = +2;
-				goto here;
+				cout += p[j].function(lists);
+				i = i + 2;
+				goto Here;
 			}
-			holder--;
+			j--;
 		}
 		_putchar(format[i]);
+		cout++;
 		i++;
-		len++;
 	}
 	va_end(lists);
-	return (len);
+	return (cout);
 }

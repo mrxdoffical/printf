@@ -10,7 +10,7 @@
 
 typedef struct formater
 {
-    char *id;
+    char *pin;
     int (*fun)();
 }caller;
 int _putchar(char c);
