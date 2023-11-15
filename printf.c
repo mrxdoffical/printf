@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		, {"%S", string_handler}, {"%p", pointer_handler}
 	};
 	va_list lists;
-	int i = 0, j, cout = 0;
+	int i = 0, j, le = 0;
 
 	va_start(lists, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
@@ -27,18 +27,18 @@ Here:
 		j = 13;
 		while (j >= 0)
 		{
-			if (p[j].pin[0] == format[i] && p[j].pin[1] == format[i + 1])
+			if (c[j].pin[0] == format[i] && c[j].pin[1] == format[i + 1])
 			{
-				cout += p[j].function(lists);
+				le = le + c[j].fun(lists);
 				i = i + 2;
 				goto Here;
 			}
 			j--;
 		}
 		_putchar(format[i]);
-		cout++;
+		le++;
 		i++;
 	}
 	va_end(lists);
-	return (cout);
+	return (le);
 }
