@@ -7,12 +7,18 @@
 #include<stdarg.h>
 #include<limits.h>
 
+/**
+ * struct formater - structure for functions
+ * @pin: pointer to functions
+ * @fun: functions
+*/
+
 
 typedef struct formater
 {
-    char *pin;
-    int (*fun)();
-}caller;
+	char *pin;
+	int (*fun)();
+} caller;
 int _putchar(char c);
 int _printf(const char *format, ...);
 int c_handler(va_list list);
