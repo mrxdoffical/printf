@@ -1,10 +1,10 @@
 #include"main.h"
 /**
- * octal_handler - to print octal
- * @lists: variadic list
+ * upper_hex_handler - to print capital_hex
+ * @num: variadic list
  * Return: counter intger
 */
-int octal_handler(va_list lists)
+int upper_hex_handler(unsigned int num)
 {
 	int i;
 
@@ -12,27 +12,27 @@ int octal_handler(va_list lists)
 
 	int *storage;
 
-	unsigned int num = va_arg(lists, unsigned int);
-
 	unsigned int temper = num;
 
-	while (num / 8 != 0)
+	while (num / 16 != 0)
 	{
-		num = num / 8;
+		num = num / 16;
 		counter++;
 	}
 	counter++;
 	storage = malloc(sizeof(int) * counter);
 	for (i = 0; i < counter ; i++)
 	{
-		storage[i] = temper % 8;
-		temper = temper / 8;
+		storage[i] = temper % 16;
+		temper = temper / 16;
 	}
 	for (i = counter - 1 ; i >= 0 ; i--)
 	{
+		if (storage[i] > 9)
+		storage[i] = storage[i] + 7;
 		_putchar(storage[i] + '0');
+
 	}
 	free(storage);
 	return (counter);
 }
-

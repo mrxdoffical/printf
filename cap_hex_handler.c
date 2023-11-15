@@ -28,11 +28,11 @@ int cap_hex_handler(va_list lists)
 		storage[i] = temper % 16;
 		temper = temper / 16;
 	}
-	for (i = counter - 1 ; >= 0 ; i--)
+	for (i = counter - 1 ; i >= 0 ; i--)
 	{
 		if (storage[i] > 9)
 		storage[i] = storage[i] + 7;
-		_putchar(storage[i] + '0')
+		_putchar(storage[i] + '0');
 
 	}
 	free(storage);

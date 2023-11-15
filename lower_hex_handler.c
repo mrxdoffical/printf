@@ -1,20 +1,18 @@
 #include"main.h"
 /**
- * hex_handler - to print hex
- * @lists: variadic list
+ * lower_hex_handler - to print hex
+ * @num: variadic list
  * Return: counter intger
 */
-int hex_handler(va_list lists)
+int lower_hex_handler(unsigned long int num)
 {
-	int i;
+	long int i;
 
-	int counter = 0;
+	long int counter = 0;
 
-	int *storage;
+	long int *storage;
 
-	unsigned int num = va_arg(lists, unsigned int);
-
-	unsigned int temper = num;
+	unsigned long int temper = num;
 
 	while (num / 16 != 0)
 	{
