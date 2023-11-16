@@ -8,27 +8,19 @@
 int bin_handler(va_list lists)
 {
 	int sign = 0;
-
 	int counter = 0;
+	int i, a = 1, b;
+	unsigned int change = va_arg(lists, unsigned int);
+	unsigned int p;
 
-	int i;
-
-	int b;
-
-	int bit_mask = 1;
-
-	unsigned int storage;
-
-	unsigned int num = va_arg(lists, unsigned int);
-
-	for (i = 0; i < 32 ; i++)
+	for (i = 0; i < 32; i++)
 	{
-		storage = ((bit_mask << (32 - i)) & num);
-		if (storage >> (32 - i))
-		sign = 1;
+		p = ((a << (31 - i)) & change);
+		if (p >> (31 - i))
+			sign = 1;
 		if (sign)
 		{
-			b = storage >> (32 - i);
+			b = p >> (31 - i);
 			_putchar(b + 48);
 			counter++;
 		}
@@ -39,6 +31,5 @@ int bin_handler(va_list lists)
 		_putchar('0');
 	}
 	return (counter);
-
-
 }
+
