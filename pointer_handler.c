@@ -5,26 +5,15 @@
  * Return: returns placeholders
 */
 
-int pointer_handler(va_list lists)
+void print_pointers(int count, ...)
 {
-	void *ptr;
-	char *string = "(nil)";
-	long int a;
-	int i;
-	int placeholder;
+    va_list args;
+    va_start(args, count);
 
-	ptr = va_arg(lists, void *);
-	if (ptr == NULL)
-	{
-		for (i = 0 ; string[i] ; i++)
-		{
-			_putchar(string[i]);
-			return (i);
-		}
-	}
-	a =  (unsigned long int)ptr;
-	_putchar('0');
-	_putchar('x');
-	placeholder = lower_hex_handler(a);
-	return (placeholder + 2);
+    for (int i = 0; i < count; ++i) {
+        void *ptr = va_arg(args, void *);
+        printf("%p\n", ptr);
+    }
+
+    va_end(args);
 }

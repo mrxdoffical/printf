@@ -35,7 +35,7 @@ int hex_handler(va_list lists);
 int cap_hex_handler(va_list lists);
 int string_handler(va_list lists);
 int upper_hex_handler(unsigned int num);
-int pointer_handler(va_list lists);
+void print_pointers(int count, ...);
 int lower_hex_handler(unsigned long int num);
 int reverse_printer(va_list lists);
 int rot13_handler(va_list args);
